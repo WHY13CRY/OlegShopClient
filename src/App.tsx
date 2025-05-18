@@ -6,7 +6,7 @@ function App() {
   const [tovary, setTovary] = useState<{id:number; content:string} []>([])
 
   useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}`)
+    axios.get(`${process.env.REACT_APP_API_URL}/api`)
       .then(res=>setTovary(res.data))
       .catch(err=>console.error(err))
   },[])
