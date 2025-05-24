@@ -1,22 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
 
-
-function App() {
-  const [tovary, setTovary] = useState<{id:number; content:string} []>([])
-
-  useEffect(()=>{
-    axios.get(`${process.env.REACT_APP_API_URL}/api`)
-      .then(res=>setTovary(res.data))
-      .catch(err=>console.error(err))
-  },[])
+const App = () => {
   return (
-    <div >
-      <h1>{tovary.map(tov=>(
-        <li key={tov.id}>{tov.content}</li>
-      ))}</h1>
-    </div>
+    <BrowserRouter>
+      <AppRoutes/>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
