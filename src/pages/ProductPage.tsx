@@ -5,55 +5,82 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import { useEffect, useState } from 'react';
 import { getOneProduct } from '../services/api';
-
-type ItemType = {
-  description: string;
-  id: number;
-  main_image_url: string;
-  name: string;
-  price: number;
-  stock_quantity: number;
-};
+import styles from '../assets/Product.module.css';
+import Header from '../components/Header';
+import { Product } from '../types/product';
 
 const ProductPage = () => {
-  const {id} = useParams<{id:string}>()
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [item, setItem] = useState<ItemType | null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
+  const [selectedPhoto, setSelectedPhoto] = useState<string | null>(null);
 
   useEffect(() => {
-    if(id){
+    if (id) {
       getOneProduct(Number(id))
-        .then((data)=>setItem(data))
-        .catch((error)=>console.error('Error fetching product:', error))
+        .then((data) => {
+          setProduct(data);
+          setSelectedPhoto(data.main_image_url);
+        })
+        .catch((error) => console.error('Error fetching product:', error));
     }
   }, [id]);
 
-  if(!item){
-    return <p>Loading...</p>
+  if (!product) {
+    return <p>Loading...</p>;
   }
   return (
-    <Container className='m-5'>
-      <Row>
-        <Col>
-          <Card.Img style={{width:'410px', height:'410px' }} variant="top" src={item.main_image_url || 'holder.js/100px160'} />
-          <Col className='mt-3'>
-            <Card.Img className='border' style={{width:'100px', height:'100px' }} variant="top" src={item.main_image_url || 'holder.js/100px160'} />
-            <Card.Img className='ms-3' style={{width:'100px', height:'100px' }} variant="top" src={item.main_image_url || 'holder.js/100px160'} />
+    <div className='d-flex justify-content-center'>
+      <Container >
+        <Header />
+        <Row className='align-items-start'>
+          <Col>
+            <Card.Img
+              style={{ width: '410px', height: '410px' }}
+              variant='top'
+              src={selectedPhoto || 'holder.js/100px160'}
+            />
+
+            <Col className='mt-3'>
+              <Card.Img
+                className={selectedPhoto === product.main_image_url ? styles.selectedImage : styles.nothing}
+                onClick={() => setSelectedPhoto(product.main_image_url)}
+                style={{ width: '100px', height: '100px' }}
+                variant='top'
+                src={product.main_image_url || 'holder.js/100px160'}
+              />
+
+              {product.images.map((p) => {
+                return (
+                  <Card.Img
+                    className={selectedPhoto === p.image_url ? styles.selectedImage : styles.nothing}
+                    onClick={() => setSelectedPhoto(p.image_url)}
+                    style={{ width: '100px', height: '100px' }}
+                    variant='top'
+                    src={p.image_url || 'holder.js/100px160'}
+                  />
+                );
+              })}
+            </Col>
           </Col>
-        </Col>
-        <Col><h1>{item.name}</h1></Col>
-        <Col>
-          <div>${item.price}</div>
-          <button
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            x
-          </button>
-        </Col>
-      </Row>
-    </Container>
+          <Col>
+            <p className='pt-3'>{product.categories[0].name}</p>
+            <h3>{product.name}</h3>
+            <p>{product.reviews[0].rating}</p>
+            <p>{product.price}</p>
+            <p>Description</p>
+            <p>{product.description}</p>
+          </Col>
+          <Col xs="auto" >
+            <div style={{padding:'25px'}}>
+              <div>Price {product.price}</div>
+              <div>Status {product.stock_quantity}</div>
+              <button style={{width:'160px'}}>Add to Cart</button>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   );
 };
 

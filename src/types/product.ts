@@ -1,7 +1,35 @@
-export interface Product {
+export type Product = {
+  categories: CategoriesType[];
+  description: string;
   id: number;
+  images: ImagesType[];
+  main_image_url: string;
   name: string;
-  description?: string;
   price: number;
-  main_image_url?: string;
-}
+  reviews: ReviewsType[];
+  stock_quantity: number;
+  rating?: number;
+};
+
+export type ProductProps = {
+  product: Product;
+};
+
+export type CategoriesType = {
+  name: string;
+};
+
+export type ImagesType = {
+  image_url: string;
+  id: number;
+  alt_text: string;
+};
+
+export type ReviewsType = {
+  comment: string;
+  rating: number;
+  user_id: number;
+};
+
+
+

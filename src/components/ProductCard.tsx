@@ -3,31 +3,31 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
 import { getOneProduct } from '../services/api';
+import styles from '../assets/Product.module.css';
+import { ProductProps } from '../types/product';
+import { Container } from 'react-bootstrap';
 
-interface ProductCardProps {
-  product: {
-    id: number;
-    name: string;
-    description?: string;
-    price: number;
-    main_image_url?: string;
-  };
-}
+const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const navigate = useNavigate();
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
-  const onClickHandler = (id:number) => {
+  const onClickHandler = (id: number) => {
     getOneProduct(id);
-    navigate(`/product/${id}`)
-  }
-  const navigate = useNavigate()
+    navigate(`/product/${id}`);
+  };
+  console.log(product);
   return (
-    <Card onClick={()=>onClickHandler(product.id) }>
-      <Card.Img variant="top" src={product.main_image_url || 'holder.js/100px160'} />
+    <Card onClick={() => onClickHandler(product.id)}>
+      <Card.Img
+        className={styles.productCardImage}
+        variant='top'
+        src={product.main_image_url || 'holder.js/100px160'}
+      />
       <Card.Body>
-        <Card.Title>{product.name}</Card.Title>
-        <Card.Text>{product.description || 'No description available'}</Card.Text>
-        <Card.Text>
-          <strong>Price: ${product.price}</strong>
+        <Card.Text>{product.categories[0]?.name}</Card.Text>
+        <Card.Title className={styles.title}>{product.name}</Card.Title>
+        <Card.Text className='d-flex justify-content-between'>
+          {product.rating} Stars
+          <strong>${product.price}</strong>
         </Card.Text>
       </Card.Body>
     </Card>
