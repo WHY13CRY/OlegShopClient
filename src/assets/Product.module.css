@@ -26,3 +26,24 @@
   border-radius: 50%;
 }
 
+.itemMainImage {
+  width: 410px;
+  height: 410px;
+}
+
+.itemSmallImage {
+  width: 100px;
+  height: 100px;
+}
+
+.centerItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinerSize {
+  width: 100px;
+  height: 100px;
+  border-width: 10px;
+}
