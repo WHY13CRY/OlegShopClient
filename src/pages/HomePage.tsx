@@ -14,6 +14,7 @@ const Home = () => {
       .then(setProducts)
       .catch((err) => console.error(err));
   }, []);
+  
   return (
     <div>
       <Container className='mb-5'>

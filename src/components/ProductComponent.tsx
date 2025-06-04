@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import styles from '../assets/Product.module.css';
 import Header from '../components/Header';
 import { Product } from '../types/product';
+import { useState } from 'react';
 
 
 type LocalProductProps = {
@@ -18,6 +19,8 @@ const ProductComponent= ({
   selectedPhoto,
   setSelectedPhoto
 }: LocalProductProps) => {
+
+  const [quntity,setQuntity] = useState(1)
  
   return (
     <div className='d-flex justify-content-center'>
@@ -64,7 +67,12 @@ const ProductComponent= ({
             <div style={{padding:'25px'}}>
               <div>Price {product.price}</div>
               <div>Status {product.stock_quantity}</div>
-              <button style={{width:'160px'}}>Add to Cart</button>
+              <div>
+                <button onClick={()=>setQuntity(Math.max(1, quntity-1))}>-</button>
+                {quntity}
+                <button onClick={()=> setQuntity(quntity+1)}>+</button>
+              </div>
+              <button style={{width:'160px'}} onClick={()=>{}}>Add to Cart</button>
             </div>
           </Col>
         </Row>

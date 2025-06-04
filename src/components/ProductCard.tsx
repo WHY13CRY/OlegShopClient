@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import { getOneProduct } from '../services/api';
 import styles from '../assets/Product.module.css';
 import { ProductProps } from '../types/product';
-import { Container } from 'react-bootstrap';
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
   const navigate = useNavigate();
@@ -14,7 +13,6 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
     getOneProduct(id);
     navigate(`/product/${id}`);
   };
-  console.log(product);
   return (
     <Card onClick={() => onClickHandler(product.id)}>
       <Card.Img

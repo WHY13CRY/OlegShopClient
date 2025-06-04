@@ -23,7 +23,7 @@ const Header = () => {
           <Nav className="ms-auto d-flex align-items-center gap-4">
             <Nav.Link href='/'>Search</Nav.Link>
             <Nav.Link href='/'>Cart</Nav.Link>
-            <Nav.Link href='/'>Sign In</Nav.Link>
+            <Nav.Link onClick={()=>navigate('/signIn')}>Sign In</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

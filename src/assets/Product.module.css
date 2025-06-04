@@ -12,7 +12,7 @@
 
 .selectedImage {
   border: 1px solid orange;
-  margin: 0 5px 5px 5px
+  margin: 0 5px 5px 5px;
 }
 
 .nothing {
@@ -20,7 +20,7 @@
   border: 1px solid lightgray;
 }
 
-.logo{
+.logo {
   width: 75px;
   height: 75px;
   border-radius: 50%;
@@ -42,8 +42,43 @@
   align-items: center;
 }
 
+.centerItemBothWay {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerItemAndMakeAsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .spinerSize {
   width: 100px;
   height: 100px;
   border-width: 10px;
 }
+
+.border {
+  border: 1px solid lightgray;
+  padding: 20px;
+}
+
+.line {
+  height: 1px;
+  width: 30%;
+  min-width: 100px;
+  background-color: black;
+  margin: 0 10px
+}
+
+.boxSizing {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding: 20px;
+}
+
