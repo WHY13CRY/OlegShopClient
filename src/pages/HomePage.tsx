@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import ProductCard from '../components/ProductCard';
-import { getProducts } from '../services/api';
+import { getProducts } from '../services/productApi';
 import { Product } from '../types/product';
 import Container from 'react-bootstrap/Container';
 import Header from '../components/Header';

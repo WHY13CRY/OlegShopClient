@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import styles from '../assets/Product.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { handleSignUp } from '../services/api';
+import { handleSignUp } from '../services/authApi';
 
 const SignUpPage: React.FC = () => {
   const [email, setEmail] = useState('');

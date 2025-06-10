@@ -36,6 +36,16 @@
   height: 100px;
 }
 
+.itemVerySmallImage {
+  width: 30px;
+  height: 30px;
+}
+
+.itemMediumImage {
+  width: 200px;
+  height: 200px;
+}
+
 .centerItem {
   display: flex;
   justify-content: center;
@@ -50,6 +60,14 @@
 }
 
 .centerItemAndMakeAsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerItemBothWayAndMakeAsColumn {
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

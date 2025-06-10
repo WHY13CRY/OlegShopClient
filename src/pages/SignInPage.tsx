@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { handleSignIn } from '../services/api';
+import { handleSignIn } from '../services/authApi';
 import Header from '../components/Header';
 
 const SignInPage: React.FC = () => {

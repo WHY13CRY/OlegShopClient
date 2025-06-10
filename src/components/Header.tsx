@@ -9,17 +9,17 @@ const Header = () => {
   const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
   const handleClick = () => {
-    if(isLoggedIn) {
-      logout()
-      navigate('/')
+    if (isLoggedIn) {
+      logout();
+      navigate('/');
     } else {
-      navigate('/signIn')
+      navigate('/signIn');
     }
   };
   return (
     <Navbar expand='md'>
       <Container>
-        <Navbar.Brand onClick={() => navigate('/')}>
+        <Navbar.Brand style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
           <div className='d-flex align-items-center gap-3'>
             <img
               alt='MainPictures'
@@ -32,9 +32,39 @@ const Header = () => {
         <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ms-auto d-flex align-items-center gap-4'>
-            <Nav.Link href='/'>Search</Nav.Link>
-            <Nav.Link href='/'>Cart</Nav.Link>
-            <Nav.Link onClick={handleClick}>{isLoggedIn ? 'Sign Out' : 'Sign In'}</Nav.Link>
+            <Nav.Link href='/'>
+              <img
+                alt='MainPictures'
+                className={styles.itemVerySmallImage}
+                src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/loupe.png'
+              />
+            </Nav.Link>
+            {isLoggedIn ? (
+              <Nav.Link onClick={() => navigate('/cart')}>
+                <img
+                  alt='MainPictures'
+                  className={styles.itemVerySmallImage}
+                  src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/shopping-cart.png'
+                />
+              </Nav.Link>
+            ) : (
+              <></>
+            )}
+            <Nav.Link onClick={handleClick}>
+              {isLoggedIn ? (
+                <img
+                  alt='MainPictures'
+                  className={styles.itemVerySmallImage}
+                  src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/logout.png'
+                />
+              ) : (
+                <img
+                  alt='MainPictures'
+                  className={styles.itemVerySmallImage}
+                  src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/login.png'
+                />
+              )}
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getOneProduct } from '../services/api';
+import { getOneProduct } from '../services/productApi';
 import { Product } from '../types/product';
 import ProductComponent from '../components/ProductComponent';
 import Loading from '../components/Loading';
