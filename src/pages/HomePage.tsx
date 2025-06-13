@@ -5,6 +5,7 @@ import { getOneProduct, getProducts } from '../services/productApi';
 import { Product } from '../types/product';
 import Container from 'react-bootstrap/Container';
 import Header from '../components/common/Header';
+import Loading from '../components/common/Loading';
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,6 +15,10 @@ const HomePage = () => {
       .then(setProducts)
       .catch((err) => console.error(err));
   }, []);
+
+  if (!products) {
+    return <Loading />;
+  }
 
   return (
     <div>

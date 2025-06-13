@@ -15,7 +15,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
     <Card onClick={() => onClickHandler(product.id)}>
       <div>
         <Card.Img
-        alt='product-image'
+        alt='main-image'
         className={styles.productCardImage}
         variant='top'
         src={product.main_image_url || 'holder.js/100px160'}
@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
         <Card.Text>{product.categories[0]?.name}</Card.Text>
         <Card.Title className={styles.title}>{product.name}</Card.Title>
         <Card.Text className='d-flex justify-content-between'>
-          {product.rating} Stars
+          <span>⭐ {product.rating}</span>
           <strong>${product.price}</strong>
         </Card.Text>
       </Card.Body>

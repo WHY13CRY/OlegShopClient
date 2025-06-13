@@ -10,6 +10,7 @@ import useCartStore from '../../store/useCartStore';
 import { toast } from 'react-toastify';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import ProductRating from './ProductRating';
 
 type LocalProductProps = {
   product: Product;
@@ -80,7 +81,7 @@ const ProductDetails = ({ product, selectedPhoto, setSelectedPhoto }: LocalProdu
         <Col lg={4}>
           <p className='pt-3 text-muted'>{product.categories[0].name}</p>
           <h2 className='fw-bold'>{product.name}</h2>
-          <p className='mb-2'>⭐ {product.reviews[0]?.rating || 'No'} stars</p>
+          <ProductRating reviews={product.reviews}/>
           <h4 className='text-success mb-3'>${product.price}</h4>
           <h6 className='fw-semibold'>Description:</h6>
           <p className='text-secondary'>{product.description}</p>
