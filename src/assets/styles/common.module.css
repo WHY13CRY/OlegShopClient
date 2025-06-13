@@ -1,0 +1,22 @@
+.logo {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.centerItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemVerySmallImage {
+  width: 30px;
+  height: 30px;
+}
+
+.spinerSize {
+  width: 100px;
+  height: 100px;
+  border-width: 10px;
+}

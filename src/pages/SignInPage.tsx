@@ -1,21 +1,21 @@
-import styles from '../assets/Product.module.css';
+import styles from '../assets/styles/auth.module.css';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { handleSignIn } from '../services/authApi';
-import Header from '../components/Header';
+import Header from '../components/common/Header';
 
 const SignInPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('1@gmail.com');
+  const [password, setPassword] = useState('1234');
   const navigate = useNavigate();
 
   const buttonHandler = async () => {
     const success = await handleSignIn(email, password);
     if (success) {
-      navigate('/')
+      navigate('/');
     }
   };
 
@@ -41,7 +41,7 @@ const SignInPage: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button style={{ width: '100%' }} variant='outline-dark' onClick={buttonHandler}>
+            <Button type='button' style={{ width: '100%' }} variant='outline-dark' onClick={buttonHandler}>
               Sign In
             </Button>
             <div style={{ margin: '25px 0 10px 0' }} className={styles.centerItem}>
@@ -49,7 +49,12 @@ const SignInPage: React.FC = () => {
               or
               <span className={styles.line}></span>
             </div>
-            <Button style={{ width: '50%', border: 'none' }} variant='outline-dark' onClick={() => navigate('/signUp')}>
+            <Button
+              type='button'
+              style={{ width: '50%', border: 'none' }}
+              variant='outline-dark'
+              onClick={() => navigate('/signUp')}
+            >
               Sign Up
             </Button>
           </div>

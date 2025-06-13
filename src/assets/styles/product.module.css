@@ -1,10 +1,60 @@
 .productCardImage {
   width: 100%;
-  height: 16rem;
+  height: 230px;
 }
 
 .title {
-  height: 68px; /* Обмежує висоту заголовка */
+  height: 68px; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 50px;
+}
+
+.itemMainImage {
+  width: 100%;
+  max-width: 410px;
+  min-width: 250px;
+  height: 100%;
+  min-height: 250px;
+  max-height: 410px;
+}
+
+.itemSmallImage {
+  width: 100px;
+  height: 100px;
+}
+
+.selectedImage {
+  border: 1px solid orange;
+  margin: 0 5px 5px 5px;
+}
+
+.spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.centerItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nothing {
+  margin: 0 5px 5px 5px;
+  border: 1px solid lightgray;
+}
+
+
+
+/* .productCardImage {
+  width: 100%;
+  height: 230px;
+}
+
+.title {
+  height: 68px; 
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 50px;
@@ -27,8 +77,12 @@
 }
 
 .itemMainImage {
-  width: 410px;
-  height: 410px;
+  width: 100%;
+  max-width: 410px;
+  min-width: 250px;
+  height: 100%;
+  min-height: 250px;
+  max-height: 410px;
 }
 
 .itemSmallImage {
@@ -100,3 +154,9 @@
   padding: 20px;
 }
 
+.spaceBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+ */

@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
-import styles from '../assets/Product.module.css';
+import styles from '../../assets/styles/common.module.css';
 
 const Loading = () => {
   return (

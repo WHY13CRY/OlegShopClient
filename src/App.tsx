@@ -7,7 +7,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AppRoutes />
-      <ToastContainer position="bottom-right" />
+      <ToastContainer position="bottom-right" hideProgressBar={true}/>
     </BrowserRouter>
   );
 };

@@ -1,6 +1,6 @@
 import { Button, Container, Form } from 'react-bootstrap';
-import Header from '../components/Header';
-import styles from '../assets/Product.module.css';
+import Header from '../components/common/Header';
+import styles from '../assets/styles/auth.module.css';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { handleSignUp } from '../services/authApi';
@@ -47,7 +47,7 @@ const SignUpPage: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button style={{ width: '100%' }} variant='outline-dark' onClick={buttonHandler}>
+            <Button type='button' style={{ width: '100%' }} variant='outline-dark' onClick={buttonHandler}>
               Sign Up
             </Button>
           </div>

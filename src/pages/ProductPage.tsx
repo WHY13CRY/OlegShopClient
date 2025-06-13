@@ -2,8 +2,8 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getOneProduct } from '../services/productApi';
 import { Product } from '../types/product';
-import ProductComponent from '../components/ProductComponent';
-import Loading from '../components/Loading';
+import ProductComponent from '../components/Product/ProductDetails';
+import Loading from '../components/common/Loading';
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,11 +22,9 @@ const ProductPage = () => {
   }, [id]);
 
   if (!product) {
-    return <Loading/>;
+    return <Loading />;
   }
-  return (
-    <ProductComponent product={product} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto}/>
-  );
+  return <ProductComponent product={product} selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto} />;
 };
 
 export default ProductPage;

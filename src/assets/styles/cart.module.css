@@ -1,0 +1,12 @@
+.centerItemBothWayAndMakeAsColumn {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemMediumImage {
+  width: 200px;
+  height: 200px;
+}

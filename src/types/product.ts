@@ -13,6 +13,7 @@ export type Product = {
 
 export type ProductProps = {
   product: Product;
+  onClick: ()=>void
 };
 
 export type CategoriesType = {
