@@ -45,12 +45,14 @@ const ProductDetails = ({ product, selectedPhoto, setSelectedPhoto }: LocalProdu
       <Header />
       <Row className='flex-column flex-lg-row'>
         <Col lg={5} className='text-center'>
-          <Card.Img
-            className={styles.itemMainImage}
-            variant='top'
-            src={selectedPhoto || 'holder.js/100px160'}
-            alt='mainImage'
-          />
+          <div className={styles.detailsImageWrapper}>
+            <Card.Img
+              className={styles.productImage}
+              variant='top'
+              src={selectedPhoto || 'holder.js/100px160'}
+              alt='mainImage'
+            />
+          </div>
           <Col className='mt-3'>
             <Card.Img
               alt='smallMainImage'
@@ -81,7 +83,7 @@ const ProductDetails = ({ product, selectedPhoto, setSelectedPhoto }: LocalProdu
         <Col lg={4}>
           <p className='pt-3 text-muted'>{product.categories[0].name}</p>
           <h2 className='fw-bold'>{product.name}</h2>
-          <ProductRating reviews={product.reviews}/>
+          <ProductRating reviews={product.reviews} />
           <h4 className='text-success mb-3'>${product.price}</h4>
           <h6 className='fw-semibold'>Description:</h6>
           <p className='text-secondary'>{product.description}</p>

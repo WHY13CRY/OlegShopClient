@@ -13,10 +13,10 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
   };
   return (
     <Card onClick={() => onClickHandler(product.id)}>
-      <div>
+      <div className={styles.productCardImageWrapper}>
         <Card.Img
         alt='main-image'
-        className={styles.productCardImage}
+        className={styles.productImage}
         variant='top'
         src={product.main_image_url || 'holder.js/100px160'}
       />

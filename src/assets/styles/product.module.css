@@ -10,13 +10,45 @@
   margin-bottom: 50px;
 }
 
-.itemMainImage {
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.detailsImageWrapper {
   width: 100%;
   max-width: 410px;
-  min-width: 250px;
-  height: 100%;
-  min-height: 250px;
-  max-height: 410px;
+  height: 410px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.productCardImageWrapper {
+  width: 100%;
+  max-width: 300px;
+  height: 300px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.mainImageWrapper {
+  width: 100%;
+  max-width: 410px;
+  height: 410px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 .itemSmallImage {

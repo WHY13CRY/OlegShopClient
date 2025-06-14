@@ -25,7 +25,7 @@ const HomePage = () => {
       <Container className='mb-5'>
         <Header />
         <h1 className='m-4'>Our Products</h1>
-        <Row xs={1} md={5} className='g-4'>
+        <Row xs={1} md={3} lg={4} className='g-4'>
           {products.map((product) => (
             <Col key={product.id}>
               <ProductCard product={product} onClick={() => getOneProduct(product.id)} />
