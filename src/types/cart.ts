@@ -6,3 +6,12 @@ export interface CartItem {
   quantity: number;
   main_image_url: string;
 }
+
+export interface AddressInfo {
+  fullName: string;
+  phone: string;
+  country: string;
+  city: string;
+  street: string;
+  postalCode: string;
+}

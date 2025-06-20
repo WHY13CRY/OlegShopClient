@@ -5,6 +5,9 @@ import SignInPage from '../pages/SignInPage';
 import SignUpPage from '../pages/SignUpPage';
 import CartPage from '../pages/CartPage';
 import ProtectedRoute from '../components/auth/ProtectedRoute';
+import ShippingInfoPage from '../pages/ShippingInfoPage';
+import PaymentPage from '../pages/PaymentPage';
+import ThanksForOrderPage from '../pages/ThanksForOrderPage';
 
 const AppRoutes = () => {
   return (
@@ -21,6 +24,9 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+      <Route path='/shipping-info' element={<ShippingInfoPage/>}/>
+      <Route path='/payment' element={<PaymentPage/>}/>
+      <Route path='/thank-you' element={<ThanksForOrderPage/>}/>
     </Routes>
   );
 };

@@ -9,14 +9,16 @@ import Loading from '../components/common/Loading';
 
 const HomePage = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getProducts()
       .then(setProducts)
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(()=> setLoading(false))
   }, []);
 
-  if (!products) {
+  if (loading) {
     return <Loading />;
   }
 

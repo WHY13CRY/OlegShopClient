@@ -72,8 +72,8 @@ const CartPage = () => {
                 <h4 className='my-4 text-center'>
                   Total: <strong>${totalPrice}</strong>
                 </h4>
-                <Button variant='dark' className='w-100 mt-4'>
-                  Proceed to checkout
+                <Button variant='dark' className='w-100 mt-4' onClick={()=>navigate('/shipping-info')}>
+                  Continue to checkout
                 </Button>
               </div>
             </Col>

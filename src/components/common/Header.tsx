@@ -4,12 +4,16 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth } from '../../hooks/useAuth';
 import styles from '../../assets/styles/common.module.css';
+import useCartStore from '../../store/useCartStore';
 
 
 
 const Header = () => {
   const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
+  const items = useCartStore((state)=> state.items)
+  const totalItems = items.reduce((acc, item)=> acc + item.quantity, 0)
+
   const handleClick = () => {
     if (isLoggedIn) {
       logout();
@@ -43,13 +47,16 @@ const Header = () => {
               <span className='d-md-none'>Search</span>
             </Nav.Link>
             {isLoggedIn ? (
-              <Nav.Link onClick={() => navigate('/cart')}>
-                <img
+              <Nav.Link style={{display:'flex'}} onClick={() => navigate('/cart')}>
+                <div style={{position:'relative'}}>
+                  <img
                   alt='Cart'
                   className={styles.itemVerySmallImage}
                   src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/shopping-cart.png'
                 />
-                <span className='d-md-none'>Cart</span>
+                <span>{totalItems> 0 && <span className={`${styles.cartBadge} bg-danger ms-1`}>{totalItems}</span>}</span>
+                </div>
+                <span className='d-md-none  ms-2'>Cart</span>
               </Nav.Link>
             ) : (
               <></>
@@ -62,7 +69,7 @@ const Header = () => {
                     className={styles.itemVerySmallImage}
                     src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/logout.png'
                   />
-                  <span className='d-md-none'>Log Out</span>
+                  <span className='d-md-none ms-2'>Log Out</span>
                 </div>
               ) : (
                 <div>
@@ -71,7 +78,7 @@ const Header = () => {
                     className={styles.itemVerySmallImage}
                     src='https://roubbqdwivkphotabgsl.supabase.co/storage/v1/object/public/product-images/Another%20Images/icons/login.png'
                   />
-                  <span className='d-md-none'>Log In</span>
+                  <span className='d-md-none ms-2'>Log In</span>
                 </div>
               )}
             </Nav.Link>

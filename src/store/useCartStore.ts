@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import * as cartApi from '../services/cartApi';
-import { CartItem } from '../types/cart';
+import { AddressInfo, CartItem } from '../types/cart';
 
 interface CartState {
   items: CartItem[];
@@ -35,6 +35,11 @@ const useCartStore = create<CartState>((set) => ({
   clearCart: async () => {
     await cartApi.clearCart();
     set({ items: [] });
+  },
+  proceedToCheckout: async (addressInfo: AddressInfo) => {
+    const result = await cartApi.proceedToCheckout(addressInfo);
+    set({ items: [] });
+    return result;
   },
 }));
 
