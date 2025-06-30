@@ -8,6 +8,7 @@ import ProtectedRoute from '../components/auth/ProtectedRoute';
 import ShippingInfoPage from '../pages/ShippingInfoPage';
 import PaymentPage from '../pages/PaymentPage';
 import ThanksForOrderPage from '../pages/ThanksForOrderPage';
+import SearchPage from '../pages/SearchPage';
 
 const AppRoutes = () => {
   return (
@@ -27,6 +28,7 @@ const AppRoutes = () => {
       <Route path='/shipping-info' element={<ShippingInfoPage/>}/>
       <Route path='/payment' element={<PaymentPage/>}/>
       <Route path='/thank-you' element={<ThanksForOrderPage/>}/>
+      <Route path='/search' element={<SearchPage/>} />
     </Routes>
   );
 };

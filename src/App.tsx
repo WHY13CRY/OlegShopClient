@@ -9,6 +9,8 @@ const App = () => {
   const fetchCart = useCartStore((state) => state.fetchCart);
 
   useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) return;
     fetchCart();
   }, [fetchCart]);
 

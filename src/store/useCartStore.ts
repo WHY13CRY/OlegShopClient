@@ -9,6 +9,7 @@ interface CartState {
   addToCart: (productId: number, quantity: number) => Promise<void>;
   removeFromCart: (productId: number) => Promise<void>;
   clearCart: () => Promise<void>;
+  proceedToCheckout: (addressInfo: AddressInfo) => Promise<any>
 }
 
 const useCartStore = create<CartState>((set) => ({
